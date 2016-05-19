@@ -16,6 +16,12 @@ func main() {
 		"new": func() (cli.Command, error) {
 			return &command.NewCommand{}, nil
 		},
+		"sync": func() (cli.Command, error) {
+			return &command.SyncCommand{}, nil
+		},
+		"up": func() (cli.Command, error) {
+			return &command.UpCommand{}, nil
+		},
 	}
 
 	exitStatus, err := c.Run()
