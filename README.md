@@ -1,10 +1,9 @@
-# skel
+# Skel [![Build Status](https://img.shields.io/travis/johnbellone/skel.svg?maxAge=2592000)](https://travis-ci.org/johnbellone/skel) [![License](https://img.shields.io/github/license/johnbellone/skel.svg?maxAge=2592000)](http://www.apache.org/licenses/LICENSE-2.0)
 
-[![Travis](https://img.shields.io/travis/johnbellone/skel.svg?maxAge=2592000)](https://travis-ci.org/johnbellone/skel)
-[![License](https://img.shields.io/github/license/johnbellone/skel.svg?maxAge=2592000)](http://www.apache.org/licenses/LICENSE-2.0)
-
-## Usage
+## Getting Started
 
 ``` bash
-% skel new chefrepo org:platform-engineering
+% skel new chef/repo org:platform-engineering license:apachev2
 ```
+
+## Development
