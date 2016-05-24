@@ -4,6 +4,11 @@
 
 ``` bash
 % skel new chef/repo org:platform-engineering license:apachev2
+% skel new chef/policyfile name:redis
+```
+
+``` bash
+% skel up
 ```
 
 ## Development
