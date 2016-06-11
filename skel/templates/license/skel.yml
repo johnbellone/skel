@@ -1,0 +1,16 @@
+---
+name: license
+variables:
+  - author
+  - year
+  - email
+templates:
+  - apachev2
+  - mit
+  - bsd
+  - bsd2c
+  - bsd3c
+  - gplv2
+  - gplv3
+  - lgplv2
+  - lgplv3
