@@ -1,0 +1,10 @@
+---
+name: chef
+variables:
+  - author
+  - org
+  - email
+templates:
+  - policyfile: Policyfile.rb
+  - repo
+  - cookbook
