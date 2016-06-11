@@ -1,4 +1,4 @@
-package main
+package skel
 
 import "github.com/hashicorp/go-version"
 
