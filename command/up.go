@@ -1,4 +1,4 @@
-package cmd
+package command
 
 import (
 	"fmt"
@@ -6,9 +6,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// initCmd represents the init command
-var initCmd = &cobra.Command{
-	Use:   "init",
+// upCmd represents the up command
+var upCmd = &cobra.Command{
+	Use:   "up",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -18,21 +18,21 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		// TODO: Work your own magic here
-		fmt.Println("init called")
+		fmt.Println("up called")
 	},
 }
 
 func init() {
-	RootCmd.AddCommand(initCmd)
+	RootCmd.AddCommand(upCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// initCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// upCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// initCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// upCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 
 }
