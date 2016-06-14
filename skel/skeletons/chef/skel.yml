@@ -4,7 +4,12 @@ variables:
   - author
   - org
   - email
+  - name
+  - description
+  - long_description
+  - version
 templates:
-  - policyfile: Policyfile.rb
+  - policyfile:
+      output: Policyfile.rb
   - repo
   - cookbook
