@@ -1,0 +1,49 @@
+AllCops:
+  Exclude:
+    - 'Rakefile'
+    - 'Gemfile'
+    - 'Policyfile.rb'
+    - 'metadata.rb'
+    - 'test/**/*.rb'
+
+AlignParameters:
+  Enabled: false
+
+AmbiguousOperator:
+  Enabled: false
+
+Encoding:
+  Enabled: false
+
+ClassLength:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+ModuleLength:
+  Enabled: false
+
+LineLength:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+PerceivedComplexity:
+  Enabled: false
+
+CyclomaticComplexity:
+  Enabled: false
+
+Style/FileName:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false

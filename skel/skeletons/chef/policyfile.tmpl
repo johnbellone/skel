@@ -1,0 +1,4 @@
+name '{{ .Name }}'
+default_source :community
+cookbook '{{ .Name }}', path: '.'
+run_list '{{ .Name }}::default'
