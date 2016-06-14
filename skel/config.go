@@ -1,7 +1,7 @@
 package skel
 
 type Config struct {
-	Name       string
-	Attributes []Attribute
-	Templates  []Template
+	Name      string
+	Variables []Variable
+	Templates []Template
 }
