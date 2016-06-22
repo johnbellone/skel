@@ -1,6 +1,0 @@
-name '{{ .Name }'
-default_source :community
-cookbook '{{ .Name }}', path: '.'
-run_list '{{ .Name }}::default'
-named_run_list :redhat, 'redhat::default', run_list
-named_run_list :ubuntu, 'ubuntu::default', run_list
