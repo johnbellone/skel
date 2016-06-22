@@ -3,20 +3,28 @@ package command
 import (
 	log "github.com/Sirupsen/logrus"
 	"os"
+	"path/filepath"
 
+	_ "github.com/johnbellone/skel/skel"
+	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
-var cfgFile string
+var (
+	ConfigFile string
+	CacheDir   string
+)
+
+var (
+	Verbose     bool
+	IgnoreCache bool
+)
 
 // RootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{
 	Use:   "skel",
 	Short: "A brief description of your application",
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	//	Run: func(cmd *cobra.Command, args []string) { },
 }
 
 func Execute() {
@@ -29,23 +37,46 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.skel.yaml)")
+	RootCmd.PersistentFlags().StringVar(&ConfigFile, "config", "", "config file (default is $HOME/.skel.toml)")
+	RootCmd.PersistentFlags().StringVar(&CacheDir, "cacheDir", "", "Filesystem path to the cache directory.")
+	RootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", false, "Use verbose output.")
+	RootCmd.PersistentFlags().BoolVar(&IgnoreCache, "ignoreCache", false, "Ignores the cache directory.")
 
 	log.SetOutput(os.Stderr)
-	log.SetLevel(log.WarnLevel)
+
+	if Verbose == true {
+		log.SetLevel(log.InfoLevel)
+	} else {
+		log.SetLevel(log.WarnLevel)
+	}
 }
 
 func initConfig() {
-	if cfgFile != "" { // enable ability to specify config file via flag
-		viper.SetConfigFile(cfgFile)
+	if ConfigFile != "" {
+		viper.SetConfigFile(ConfigFile)
 	}
 
-	viper.SetConfigName(".skel") // name of config file (without extension)
-	viper.AddConfigPath("$HOME") // adding home directory as first search path
-	viper.AutomaticEnv()         // read in environment variables that match
+	viper.AutomaticEnv()
+	viper.SetConfigType("toml")
+	viper.SetConfigName("skel")
+	viper.AddConfigPath(".")
 
-	// If a config file is found, read it in.
-	if err := viper.ReadInConfig(); err == nil {
-		log.Debug("Using config file:", viper.ConfigFileUsed())
+	dir, err := homedir.Dir()
+	if err != nil {
+		log.Warn("Unable to detect user home directory.")
+	} else {
+		log.Debug("Using home directory: ", dir)
+		viper.AddConfigPath(dir)
+
+		log.Debug("Using cache directory: ", filepath.Join(dir, ".skel"))
+		viper.SetDefault("CacheDir", filepath.Join(dir, ".skel"))
 	}
+
+	if err := viper.ReadInConfig(); err != nil {
+		log.Error("Failed reading config file: ", viper.ConfigFileUsed())
+		os.Exit(1)
+
+	}
+
+	log.Debug("Using config file: ", viper.ConfigFileUsed())
 }
