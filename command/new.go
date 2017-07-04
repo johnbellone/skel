@@ -2,7 +2,6 @@ package command
 
 import (
 	log "github.com/Sirupsen/logrus"
-
 	"github.com/spf13/cobra"
 )
 

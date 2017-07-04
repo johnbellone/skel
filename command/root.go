@@ -2,23 +2,22 @@ package command
 
 import (
 	log "github.com/Sirupsen/logrus"
-	"os"
-	"path/filepath"
-
-	_ "github.com/johnbellone/skel/skel"
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"os"
+	"path/filepath"
 )
 
 var (
+	// ConfigFile The path to the configuration file.
 	ConfigFile string
-	CacheDir   string
-)
 
-var (
-	Verbose     bool
-	IgnoreCache bool
+	// CacheDir The path to the cache directory for skel templates.
+	CacheDir string
+
+	// Verbose The global value if verbosity was enabled.
+	Verbose bool
 )
 
 // RootCmd represents the base command when called without any subcommands
@@ -27,6 +26,7 @@ var RootCmd = &cobra.Command{
 	Short: "A brief description of your application",
 }
 
+// Execute the entrypoint for executing the command.
 func Execute() {
 	if err := RootCmd.Execute(); err != nil {
 		log.Error(err)
@@ -40,7 +40,7 @@ func init() {
 	RootCmd.PersistentFlags().StringVar(&ConfigFile, "config", "", "config file (default is $HOME/.skel.toml)")
 	RootCmd.PersistentFlags().StringVar(&CacheDir, "cacheDir", "", "Filesystem path to the cache directory.")
 	RootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", false, "Use verbose output.")
-	RootCmd.PersistentFlags().BoolVar(&IgnoreCache, "ignoreCache", false, "Ignores the cache directory.")
+	//RootCmd.PersistentFlags().BoolVar(&ignoreCache, "ignoreCache", false, "Ignores the cache directory.")
 
 	log.SetOutput(os.Stderr)
 
