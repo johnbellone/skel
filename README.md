@@ -3,9 +3,7 @@
 ## Getting Started
 
 ``` bash
-% skel new chef/repo org:platform-engineering license:apachev2
-% skel new chef/policyfile name:redis
-% skel new license year:2016
+% skel new chef/cookbook name:redis license:apachev2
+% skel new chef/repo org:syscore-engineering
+% skel new license/apachev2 year:2016
 ```
-
-## Development

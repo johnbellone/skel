@@ -1,7 +1,6 @@
-bin/
-tmp/
-pkg/
-vendor/
-*.test
-*.skel
 .DS_Store
+/bin/
+/.gopath~/
+/vendor/
+/test/tests.*
+/test/coverage.*

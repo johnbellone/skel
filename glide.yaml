@@ -1,0 +1,5 @@
+package: github.com/johnbellone/skel
+license: Apache
+owners:
+  - name: John Bellone
+    email: john.bellone.jr@gmail.com
