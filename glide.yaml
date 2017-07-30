@@ -1,4 +1,5 @@
 package: github.com/johnbellone/skel
+homepage: https://github.com/johnbellone/skel
 license: Apache
 owners:
   - name: John Bellone
